@@ -1,7 +1,10 @@
 import './navbar.css'
 import logo from './images/logo.png'
-import icondown from './images/icondown.png'
-export const Navbar = () =>{
+import {IoLogInOutline} from 'react-icons/io5'
+import { AiOutlineDown } from 'react-icons/ai';
+
+
+export const Navbar = ({children}) =>{
 
     return(
         <header>
@@ -15,12 +18,16 @@ export const Navbar = () =>{
                         
                     </div>
                     <ul className='header__nav-links'>
-                    <li className='header__nav-li'>
+                        <li className='header__nav-li'>
+                            {children}
+                        </li>
+
+                        <li className='header__nav-li'>
                             <a  href='#' className='header__a'><b>Novedades</b></a>
                         </li>
                         
                         <li className='header__nav-li'>
-                            <a  href='#' className='header__a'><b>Productos</b>
+                            <a  href='#' className='header__a product'><AiOutlineDown className='product__icon'/><b>Productos</b>
                                 <ul className='submenu'>
                                     <li><a className='header__a' href='#'>motherboards</a></li>
                                     <li><a className='header__a' href='#'>procesadores</a></li>
@@ -39,7 +46,7 @@ export const Navbar = () =>{
                             <a  href='#' className='header__a'><b>Sobre nosotros</b></a>
                         </li>
                         <li className='header__nav-li'>
-                            <a  href='#' className='header__a login'><b>iniciar sesion</b></a>
+                            <a  href='#' className='header__a login'><IoLogInOutline className='login__icon'/><b>iniciar sesion</b></a>
                         </li>
                         
                     </ul>

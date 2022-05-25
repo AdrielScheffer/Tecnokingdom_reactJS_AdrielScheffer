@@ -117,7 +117,10 @@
 
 .login{
     border: #32b8ec 3px solid;
-    padding: 20px;
+    padding-left: 40px;
+    padding-right: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
     border-radius: 10px;
     color: #32b8ec;
     
@@ -127,7 +130,21 @@
     background-color: #6b6161;
 }
 
-.e{
-    text-shadow: none;
-    box-shadow: none;
+
+
+
+.login__icon{
+    font-size: 38px;
+    position: absolute;
+    margin-left: -40px;
+    margin-top: -9px;
+}
+
+
+
+
+.product__icon{
+    font-size: 15px;
+    
+    
 }

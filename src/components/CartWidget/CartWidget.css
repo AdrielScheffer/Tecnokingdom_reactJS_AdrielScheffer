@@ -1,0 +1,34 @@
+
+
+
+.cardwidget__main{
+    font-weight: bold;
+    font-size: 18px;
+    
+}
+
+
+.cardwidget__a{
+    color: #888;
+    text-decoration: none;
+}
+
+.cardwidget__main:hover{
+    color: #32b8ec;
+    
+    text-shadow: 0 0 15px #32b8ec;
+}
+
+.cardwidget__a:hover{
+    color: #32b8ec;
+    
+    text-shadow: 0 0 15px #32b8ec;
+}
+
+.icon{
+    font-size: 40px;
+    position: absolute;
+    margin-left: -45px;
+    margin-top: -12px;
+
+}
