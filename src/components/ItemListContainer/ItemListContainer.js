@@ -1,5 +1,5 @@
 import './ItemListContainer.css'
-import image from './images/rx6600.jpg'
+
 
 export const ItemListContainer = ({props})=>{
 
