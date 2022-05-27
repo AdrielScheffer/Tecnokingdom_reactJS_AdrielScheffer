@@ -1,4 +1,4 @@
-import './navbar.css'
+import './Navbar.css'
 import logo from './images/logo.png'
 import {IoLogInOutline} from 'react-icons/io5'
 import { AiOutlineDown } from 'react-icons/ai';

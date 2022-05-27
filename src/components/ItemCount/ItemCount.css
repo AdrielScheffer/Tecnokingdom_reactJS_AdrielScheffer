@@ -1,0 +1,44 @@
+
+
+.main__div{
+    display: flex;
+    margin: auto;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #000000;
+    background-image: linear-gradient(315deg, #000000 0%, #414141 74%);
+    border-radius: 20px;
+    color: #fff;
+    width: 300px;
+    border: #32b8ec 4px solid;
+    
+    
+}
+
+.main__div-button{
+    border: none;
+    border-radius: 20px;
+    width: 80px;
+    height: 40px;
+    cursor: pointer;
+    margin: 20px;
+    font-size: 24px;
+    color: #fff;
+    transition: 0.3s;
+    
+    background-image: linear-gradient(to right, #5f91db,#356dc2,#1a51a5)
+    
+}
+
+
+.main__div-span{
+    font-weight: bold;
+    font-size: 24px;
+    
+}
+
+.main__div-button:hover{
+    background-image: linear-gradient(to right, #9fbeec,#76a3e7,#81acee)
+    
+    
+}

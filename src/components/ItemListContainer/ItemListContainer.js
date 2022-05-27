@@ -12,6 +12,7 @@ export const ItemListContainer = ({props})=>{
                     <img src={image} className='image_test'></img>
                 </div>
                 <p className="product__div-description">{props.description}</p>
+                
             </section>
 
 
