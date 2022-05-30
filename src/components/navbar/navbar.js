@@ -9,7 +9,7 @@ import { AiOutlineDown } from 'react-icons/ai';
 export const Navbar = ({children}) =>{
 
     return(
-        <header>
+        <header className='background'>
             <nav className='header__nav'>
                 <ul className='header__nav-ul'>
                     <div className='header__nav-logo-title'>

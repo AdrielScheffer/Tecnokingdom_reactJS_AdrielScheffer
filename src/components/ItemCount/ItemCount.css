@@ -2,6 +2,7 @@
 
 .main__div{
     display: flex;
+    
     margin: auto;
     justify-content: space-around;
     align-items: center;
@@ -41,4 +42,9 @@
     background-image: linear-gradient(to right, #9fbeec,#76a3e7,#81acee)
     
     
+}
+
+.background{
+    background-color: #000000;
+    background-image: linear-gradient(to right, #000000 60%,#32b8ec );
 }

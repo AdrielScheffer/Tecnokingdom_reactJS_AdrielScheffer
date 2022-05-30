@@ -25,10 +25,12 @@ export const ItemCount= ({stock})=>{
 
     }
 return(
+    <div className="background">
     <div className="main__div">
         <button onClick={incrementar} className="main__div-button">+</button>
         <span className="main__div-span">{contador}</span>
         <button onClick={decrementar} className="main__div-button">-</button>
+    </div>
     </div>
 
 

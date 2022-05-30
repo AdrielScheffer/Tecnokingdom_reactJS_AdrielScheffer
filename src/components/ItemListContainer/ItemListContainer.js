@@ -1,22 +1,48 @@
 import './ItemListContainer.css'
+import spiner from './images/spiner.gif'
+import { useEffect, useState } from 'react'
+import pedirDatos from '../../Data/PedirDatos.js'
+import ItemList from '../ItemList/ItemList.js'
 
 
-export const ItemListContainer = ({props})=>{
 
+export const ItemListContainer = ()=>{
+
+    const [items,setitems]= useState([])
+    const [loading, setloading] = useState(true)
+
+        useEffect(()=>{
+
+            setloading(true)
+
+            pedirDatos()
+                .then((resp)=>{
+                    setitems(resp)
+                    
+                })
+                .catch((error)=>{
+                    console.log("ERROR: ", error)
+                    
+                    
+                })
+                .finally(()=>{
+                    setloading(false)
+                })
+
+        },[])
+
+    
     return(
-        <div className="product__div">
+        <div className='main__container'>
+            {
+                loading
+                ? <img src={spiner} alt="spiner"></img>
             
-            <section>
-                <h3>{props.name}</h3>
-                <div className='image__container'>
-                    <img src={image} className='image_test'></img>
-                </div>
-                <p className="product__div-description">{props.description}</p>
+                : <ItemList items={items}/>
                 
-            </section>
-
-
-
+                    
+            }
         </div>
+        
     )
 }
