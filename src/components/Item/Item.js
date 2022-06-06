@@ -1,4 +1,4 @@
-
+import { Link} from 'react-router-dom';
 
 const Item = ({item})=>{
 
@@ -10,7 +10,7 @@ const Item = ({item})=>{
             <img src={item.imagen} alt="gpu" className="image"/>
             <p>{item.descripcion}</p>
             <p>{item.precio}</p>
-            <button className="main__container-div-button">Ver mas</button>
+            <Link className='main__container-div-button' to={`/producto/${item.id}`}>Ver mas</Link>
             
         </div>
     )

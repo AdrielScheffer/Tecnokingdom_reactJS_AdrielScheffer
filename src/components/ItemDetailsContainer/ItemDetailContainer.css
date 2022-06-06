@@ -1,0 +1,125 @@
+
+.main__detail-container{
+    background-color: #000000;
+    background-image: linear-gradient(to right, #000000 60%,#32b8ec );
+    height:100%;
+    width: 100%;
+    padding-top: 8px;
+    padding-bottom: 300px;
+    height: 650px;
+}
+
+.spiner {
+    height: auto; 
+    width: auto; 
+    max-width: 300px; 
+    max-height: 300px;
+    border-radius: 10px; 
+}
+
+
+.detail__container{
+    background-color: #000000;
+    background-image: linear-gradient(to left, #000000 , #414141 );
+    margin: auto;
+    width: 1100px;
+    border-radius: 24px 24px 0px 0px;
+    padding: 30px;
+    
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+    
+}
+
+.image{
+    max-width: 500px; 
+    max-height: 500px;
+    box-shadow: 0px 0px 15px #000; 
+    display: inline;
+    margin:20;
+    
+    border-radius: 12px;
+}
+
+.detail__text{
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.desc{
+    white-space: pre-wrap;
+    height: 300px;
+    width: 500px;
+    text-align: center;
+    
+    font-size: 18px;
+    
+}
+
+.price{
+    font-size: 32px;
+}
+
+.button__container{
+    background-color: #000000;
+    background-image: linear-gradient(to left, #000000 , #414141 );
+    border-radius: 0px 0px 24px 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    width: 1100px;
+    padding: 30px;
+    
+    
+}
+
+.button{
+    background-image: linear-gradient(315deg, #000000 0%, #414141 74%);
+    padding: 20px;
+    text-decoration: none;
+    border: #32b8ec 4px solid;
+    border-radius: 12px;
+    font-size: 32px;
+    font-weight: bold;
+    color: #fff;
+    transition: all 0.5s;
+}
+
+.button:hover{
+    background-image: linear-gradient(to right, #000000 0%, #414141 74%);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px #32b8ec;
+    cursor: pointer;
+}
+
+.back__button-container{
+    
+    margin: 30px;
+    
+    
+}
+
+.back__button{
+    background-image: linear-gradient(to left, #5f91db,#356dc2,#1a51a5);
+    padding: 20px 40px 20px 60px;
+    border-radius: 24px;
+    text-decoration: none;
+    cursor: pointer;
+    color: #fff;
+    font-weight: bold;
+    font-size: 18px;
+    border: none;
+}
+
+.icon{
+    font-size: 40px;
+}
+
+.back__button:hover{
+    box-shadow: 0px 0px 20px #32b8ec;
+}

@@ -4,6 +4,7 @@
     background-image: linear-gradient(to right, #000000 60%,#32b8ec );
     padding-top: 30px;
     padding-bottom: 30px;
+    min-height: 900px;
 }
 
 .main__container img {
@@ -40,6 +41,8 @@
 }
 
 .main__container-div-button{
+    list-style: none;
+    text-decoration: none;
     border-style: none;
     background-image: linear-gradient(to right, #5f91db,#356dc2,#1a51a5);
     padding: 10px;

@@ -2,11 +2,13 @@ import './Navbar.css'
 import logo from './images/logo.png'
 import {IoLogInOutline} from 'react-icons/io5'
 import { AiOutlineDown } from 'react-icons/ai';
+import { Link } from 'react-router-dom';
 
 
 
 
 export const Navbar = ({children}) =>{
+
 
     return(
         <header className='background'>
@@ -15,7 +17,7 @@ export const Navbar = ({children}) =>{
                     <div className='header__nav-logo-title'>
                         <div className='header__nav-logo'>
                             <img src={logo} className="logo"></img>
-                            <h2 className='header__nav-h2'>Tecno Kingdom</h2>
+                            <h2 ><Link to={"/"} className='header__nav-h2'>Tecno Kingdom</Link></h2>
                         </div>
                         
                     </div>
@@ -25,24 +27,24 @@ export const Navbar = ({children}) =>{
                         </li>
 
                         <li className='header__nav-li'>
-                            <a  href='#' className='header__a'><b>Novedades</b></a>
+                            <Link to={'/categorias/placa-video'} className='header__a'><b>Novedades</b></Link>
                         </li>
                         
-                        <li className='header__nav-li'>
-                            <a  href='#' className='header__a product'><AiOutlineDown className='product__icon'/><b>Productos</b>
+                        <div className='header__nav-li'>
+                            <div className='header__a product'><AiOutlineDown className='product__icon'/><b>Productos</b>
                                 <ul className='submenu'>
-                                    <li><a className='header__a' href='#'>motherboards</a></li>
-                                    <li><a className='header__a' href='#'>procesadores</a></li>
-                                    <li><a className='header__a' href='#'>memorias ram</a></li>
-                                    <li><a className='header__a' href='#'>placas de video</a></li>
-                                    <li><a className='header__a' href='#'>almacenamiento</a></li>
-                                    <li><a className='header__a' href='#'>monitores</a></li>
-                                    <li><a className='header__a' href='#'>fuentes</a></li>
-                                    <li><a className='header__a' href='#'>gabinetes</a></li>
-                                    <li><a className='header__a' href='#'>accesorios</a></li>
+                                    <li><Link to={"/categorias/motherboards"} className='header__a' >motherboards</Link></li>
+                                    <li><Link to={'/categorias/procesadores'} className='header__a' >procesadores</Link></li>
+                                    <li><Link to={'/categorias/ram'} className='header__a' >memorias ram</Link></li>
+                                    <li><Link to={'/categorias/placa-video'} className='header__a' >placas de video</Link></li>
+                                    <li><Link to={'/categorias/almacenamiento'} className='header__a' >almacenamiento</Link></li>
+                                    <li><Link to={'/categorias/monitores'} className='header__a' >monitores</Link></li>
+                                    <li><Link to={'/categorias/fuentes'} className='header__a' >fuentes</Link></li>
+                                    <li><Link to={'/categorias/gabinetes'} className='header__a' >gabinetes</Link></li>
+                                    <li><Link to={'/categorias/acesorios'} className='header__a' >acesorios</Link></li>
                                 </ul>
-                            </a>
-                        </li>
+                            </div>
+                        </div>
                             
                         <li className='header__nav-li'>
                             <a  href='#' className='header__a'><b>Sobre nosotros</b></a>

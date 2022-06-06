@@ -4,27 +4,29 @@ import {Navbar} from './components/Navbar/Navbar.js'
 import {CardWidget} from './components/CartWidget/CardWidget.js'
 import { ItemListContainer } from './components/ItemListContainer/ItemListContainer.js';
 import {ItemCount} from './components/ItemCount/ItemCount.js'
+import {BrowserRouter, Routes, Route} from 'react-router-dom'
+import { ItemDetailContainer } from './components/ItemDetailsContainer/ItemDetailContainer';
 
 function App() {
 
   
   return (
+    <BrowserRouter>
     <div className="App">
       <Navbar>
         <CardWidget/>
       </Navbar>
       
-        <ItemCount stock={10} />
-        
-        <ItemListContainer />
-      
-      
-      
-      
-      
-      
+        <Routes>
+          <Route path='/' element={<ItemListContainer />}/>
+          <Route path='/count' element={<ItemCount stock={10} />}/>
+          <Route path='/categorias/:categoryId' element={<ItemListContainer />}/>
+          <Route path='/producto/:itemId' element={<ItemDetailContainer/>}/>
+          
+        </Routes>
       
     </div>
+    </BrowserRouter>
     
   );
 }

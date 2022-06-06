@@ -9,7 +9,7 @@ export const ItemCount= ({stock})=>{
  const incrementar = ()=>{
     if(contador<stock){
         setContador( contador + 1)
-        console.log(contador)
+        
     }
     
 
@@ -18,20 +18,22 @@ export const ItemCount= ({stock})=>{
     const decrementar = ()=>{
         if(contador>1){
             setContador( contador - 1)
-            console.log(contador)
+            
         }
         
 
 
     }
 return(
-    <div className="background">
+    <>
+    <span><b>cantidad de unidades</b></span>
     <div className="main__div">
+        
         <button onClick={incrementar} className="main__div-button">+</button>
         <span className="main__div-span">{contador}</span>
         <button onClick={decrementar} className="main__div-button">-</button>
     </div>
-    </div>
+    </>
 
 
 )
