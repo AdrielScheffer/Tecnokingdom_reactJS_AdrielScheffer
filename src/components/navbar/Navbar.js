@@ -38,10 +38,10 @@ export const Navbar = ({children}) =>{
                                     <li><Link to={'/categorias/ram'} className='header__a' >memorias ram</Link></li>
                                     <li><Link to={'/categorias/placa-video'} className='header__a' >placas de video</Link></li>
                                     <li><Link to={'/categorias/almacenamiento'} className='header__a' >almacenamiento</Link></li>
-                                    <li><Link to={'/categorias/monitores'} className='header__a' >monitores</Link></li>
+                                    
                                     <li><Link to={'/categorias/fuentes'} className='header__a' >fuentes</Link></li>
-                                    <li><Link to={'/categorias/gabinetes'} className='header__a' >gabinetes</Link></li>
-                                    <li><Link to={'/categorias/acesorios'} className='header__a' >acesorios</Link></li>
+                                    
+                                    
                                 </ul>
                             </div>
                         </div>

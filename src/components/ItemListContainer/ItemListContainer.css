@@ -59,3 +59,10 @@
 }
 
 
+.main__container-title{
+    padding-bottom: 7px;
+}
+
+.main__container-price{
+    font-size: 24px;
+}
