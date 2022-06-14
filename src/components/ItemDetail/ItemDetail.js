@@ -1,10 +1,11 @@
 import { IoIosArrowRoundBack } from "react-icons/io";
-
+import { ItemCount } from "../ItemCount/ItemCount";
 import { useNavigate } from "react-router-dom"
+import { useState } from "react";
 
-export const ItemDetail = ({item,children})=>{
+export const ItemDetail = ({item})=>{
 
-    console.log(children)
+    const [cantidad, setCantidad]= useState(1)
 
     const navigate = useNavigate()
 
@@ -12,6 +13,16 @@ export const ItemDetail = ({item,children})=>{
         navigate(-1)
     }
 
+    const handleAgregar =()=>{
+        const itemToCart = {
+            ...item,
+            cantidad:cantidad
+        }
+        console.log(itemToCart)
+
+    }
+
+    
     return(
         <>
 
@@ -22,6 +33,8 @@ export const ItemDetail = ({item,children})=>{
         <div className="back__button-container">
             <Link className="back__button" to={`/categorias/${item.categoria}`}><IoIosArrowRoundBack className="icon"/>VOLVER</Link>
         </div> */}
+
+        
 
     
 
@@ -39,15 +52,15 @@ export const ItemDetail = ({item,children})=>{
                 <h1>{item.nombre}</h1>
                 <p className="desc">{item.descripcionLarga}</p>
                 <p className="price">{item.precio}</p>
-                <div>{children}</div>
+                <ItemCount stock={10} counter={cantidad} setCounter={setCantidad} handleAgregar={handleAgregar}/>
+                
                 
             </div>
-            
-                
+              
         </div>
-        <div className="button__container">
-                <button className="button">Agregar al carrito</button>
-            </div>
+        
+        
+        
 
         </>
     )

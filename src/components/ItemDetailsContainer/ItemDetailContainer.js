@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react'
 import pedirDatos from '../../Data/PedirDatos.js'
 import { ItemDetail } from '../ItemDetail/ItemDetail'
 import { useParams } from 'react-router-dom'
-import { ItemCount } from '../ItemCount/ItemCount'
+
 
 
 
@@ -14,8 +14,7 @@ export const ItemDetailContainer = ()=>{
     const [loading, setloading] = useState(true)
     
     const {itemId} = useParams()
-    console.log(itemId)
-    console.log(item)
+    
 
         useEffect(()=>{
 
@@ -47,7 +46,7 @@ export const ItemDetailContainer = ()=>{
                 ? <img src={spiner} alt="spiner" className='spiner'></img>
             
                 : <>
-                    <ItemDetail item = {item}> <ItemCount stock={10}/> </ItemDetail>
+                    <ItemDetail item = {item}>  </ItemDetail>
                     
                     
                 
