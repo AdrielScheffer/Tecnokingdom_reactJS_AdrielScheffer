@@ -8,27 +8,31 @@ import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import { ItemDetailContainer } from './components/ItemDetailsContainer/ItemDetailContainer';
 import {Footer} from './components/Footer/Footer.js';
 import { Cart } from './components/Cart/Cart';
+import { MiContext } from './Context/Context';
 
 function App() {
 
   
   return (
-    <BrowserRouter>
-    <div className="App">
-      <Navbar>
-        <CardWidget/>
-      </Navbar>
-      
-        <Routes>
-          <Route path='/' element={<ItemListContainer />}/>
-          <Route path='/categorias/:categoryId' element={<ItemListContainer />}/>
-          <Route path='/producto/:itemId' element={<ItemDetailContainer/>}/>
-          <Route path='/cart' element={<Cart/>}/>
+    <MiContext.Provider>
+      <BrowserRouter>
+        <div className="App">
+          <Navbar>
+            <CardWidget/>
+          </Navbar>
           
-        </Routes>
-      <Footer/>
-    </div>
-    </BrowserRouter>
+            <Routes>
+              <Route path='/' element={<ItemListContainer />}/>
+              <Route path='/categorias/:categoryId' element={<ItemListContainer />}/>
+              <Route path='/producto/:itemId' element={<ItemDetailContainer/>}/>
+              <Route path='/cart' element={<Cart/>}/>
+              
+            </Routes>
+          <Footer/>
+        </div>
+      </BrowserRouter>
+      
+    </MiContext.Provider>
     
   );
 }

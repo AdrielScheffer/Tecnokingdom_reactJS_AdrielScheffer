@@ -18,6 +18,8 @@ export const ItemDetail = ({item})=>{
         elemento.style.display = "none";
         let fin = document.getElementById("finish")
         fin.style.visibility = "visible";
+        let counter = document.getElementById("item_count")
+        counter.style.visibility = "hidden";
         const itemToCart = {
             ...item,
             cantidad:cantidad
@@ -56,7 +58,7 @@ export const ItemDetail = ({item})=>{
                 <h1>{item.nombre}</h1>
                 <p className="desc">{item.descripcionLarga}</p>
                 <p className="price">{item.precio}</p>
-                <ItemCount stock={10} counter={cantidad} setCounter={setCantidad} handleAgregar={handleAgregar}/>
+                <div id="item_count"><ItemCount stock={10} counter={cantidad} setCounter={setCantidad} handleAgregar={handleAgregar} id="item_count"/></div>
                 
                 
             </div>
