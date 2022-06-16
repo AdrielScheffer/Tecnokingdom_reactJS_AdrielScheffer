@@ -14,6 +14,10 @@ export const ItemDetail = ({item})=>{
     }
 
     const handleAgregar =()=>{
+        let elemento = document.getElementById("button")
+        elemento.style.display = "none";
+        let fin = document.getElementById("finish")
+        fin.style.visibility = "visible";
         const itemToCart = {
             ...item,
             cantidad:cantidad
@@ -56,6 +60,7 @@ export const ItemDetail = ({item})=>{
                 
                 
             </div>
+            
               
         </div>
         

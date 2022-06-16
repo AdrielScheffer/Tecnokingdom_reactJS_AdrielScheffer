@@ -1,0 +1,26 @@
+
+.cart__container{
+    
+    background-image: linear-gradient(to right, #000000 60%,#32b8ec );
+    height: 800px;
+
+}
+
+.cart__container-h2{
+    color: #fff;
+    font-weight: bold;
+}
+
+.spiner {
+    height: auto; 
+    width: auto; 
+    max-width: 300px; 
+    max-height: 300px;
+    border-radius: 10px; 
+}
+
+.spiner__load{
+    padding-top: 30px;
+    height: 800px;
+    background-image: linear-gradient(to right, #000000 60%,#32b8ec );
+}
