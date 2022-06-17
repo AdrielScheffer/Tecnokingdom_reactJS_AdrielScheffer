@@ -1,14 +1,17 @@
 import './ItemDetailContainer.css'
 import spiner from '../ItemListContainer/images/spiner.gif'
-import { useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import pedirDatos from '../../Data/PedirDatos.js'
 import { ItemDetail } from '../ItemDetail/ItemDetail'
 import { useParams } from 'react-router-dom'
+import { CartContext } from '../../Context/CartContext'
 
 
 
 
 export const ItemDetailContainer = ()=>{
+
+    const contexto = useContext(CartContext)
 
     const [item,setItem]= useState(null)
     const [loading, setloading] = useState(true)

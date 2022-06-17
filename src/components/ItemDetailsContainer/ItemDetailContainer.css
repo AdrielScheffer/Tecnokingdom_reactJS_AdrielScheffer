@@ -129,13 +129,13 @@
 
 .finish__container{
     border-radius: 12px;
-    visibility: hidden;
+    
     border: none;
     background-image: linear-gradient(to right, #414141, #ca0e0e);
-    position: absolute;
-    margin-top: 280px;
-    margin-right: 500px;
-    padding: 30px;
+    width: 300px;
+    margin: auto;
+    
+    padding: 20px;
     font-size: 18px;
 }
 

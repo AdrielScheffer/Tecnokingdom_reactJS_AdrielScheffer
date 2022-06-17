@@ -23,7 +23,7 @@ const productos= [
     `,
     imagen:'../assets/placas-video/rx6600.jpg',
     categoria:"placa-video",
-    precio: "$ " + 75000
+    precio:75000
 },
 {
     id:2,
@@ -45,7 +45,7 @@ const productos= [
     Potencia de la tarjeta gráfica: 130 W`,
     imagen:"../assets/placas-video/rtx3050.jpg",
     categoria:"placa-video",
-    precio: "$ " + 80000
+    precio:80000
 },
 {
     id:3,
@@ -61,7 +61,7 @@ const productos= [
     Compatible con AMD Ryzen, Intel.`,
     imagen:"../assets/ram/ram.jpg",
     categoria:"ram",
-    precio: "$ " + 6200
+    precio:6200
 },
 {
     id:4,
@@ -83,7 +83,7 @@ const productos= [
     Tamaño de la placa: 245x119x40mm
     Potencia de la tarjeta gráfica: 130 W`,
     categoria:"placa-video",
-    precio: "$ " + 200000
+    precio:200000
 },
 {
     id:5,
@@ -103,7 +103,7 @@ const productos= [
     Máxima potencia turbo: 117 vatios`,
     imagen:"../assets/procesador/i512400k.jpg",
     categoria:"procesadores",
-    precio: "$ " + 25000
+    precio:25000
 },
 {
     id:6,
@@ -125,7 +125,7 @@ const productos= [
     Potencia de la tarjeta gráfica: 130 W`,
     imagen:"../assets/placas-video/rtx2060.jpg",
     categoria:"placa-video",
-    precio: "$ " + 90000
+    precio:90000
 },
 {
     id:7,
@@ -144,7 +144,7 @@ const productos= [
     `,
     imagen:"../Assets/motherboard/asrock-z390.jpg",
     categoria:"motherboards",
-    precio: "$ " + 16000
+    precio:16000
 },
 {
     id:8,
@@ -166,7 +166,7 @@ const productos= [
     4 x USB 2.0 port(s)`,
     imagen:"../assets/motherboard/asus-b450m-a2.jpg",
     categoria:"motherboards",
-    precio: "$ " + 19300
+    precio:19300
 },
 {
     id:9,
@@ -190,7 +190,7 @@ const productos= [
     `,
     imagen:"../assets/motherboard/gigabyte-a320m-h.jpg",
     categoria:"motherboards",
-    precio: "$ " + 12700
+    precio:12700
 },
 {
     id:10,
@@ -209,7 +209,7 @@ const productos= [
     Diseño: Micro ATX Form Factor; 24.4cm x 21.0cm`,
     imagen:"../assets/motherboard/h510m-e_asus.jpg",
     categoria:"motherboards",
-    precio: "$ " + 14000
+    precio:14000
 },
 {
     id:11,
@@ -233,7 +233,7 @@ const productos= [
     `,
     imagen:"../assets/procesador/Ryzen-5-5500.jpg",
     categoria:"procesadores",
-    precio: "$ " + 28000
+    precio:28000
 },
 {
     id:12,
@@ -251,7 +251,7 @@ const productos= [
     `,
     imagen:"../assets/procesador/Ryzen7pro4750.jpg",
     categoria:"procesadores",
-    precio: "$ " + 40000
+    precio:40000
 },
 {
     id:13,
@@ -270,7 +270,7 @@ const productos= [
     `,
     imagen:"../assets/procesador/pentium-g7400.jpg",
     categoria:"procesadores",
-    precio: "$ " + 14000
+    precio:14000
 },
 {
     id:14,
@@ -293,7 +293,7 @@ const productos= [
     `,
     imagen:"../assets/almacenamiento/gigabyte-120gb.jpg",
     categoria:"almacenamiento",
-    precio: "$ " + 3800
+    precio:3800
 },
 {
     id:15,
@@ -314,7 +314,7 @@ const productos= [
     `,
     imagen:"../assets/almacenamiento/wdgreen240gb.jpg",
     categoria:"almacenamiento",
-    precio: "$ " + 5300
+    precio:5300
 },
 {
     id:16,
@@ -330,7 +330,7 @@ const productos= [
     `,
     imagen:"../assets/almacenamiento/wb-blue1tb.jpg",
     categoria:"almacenamiento",
-    precio: "$ " + 5000
+    precio:5000
 },
 {
     id:17,
@@ -353,7 +353,7 @@ const productos= [
     `,
     imagen:"../assets/fuentes/gigabytep450b.jpg",
     categoria:"fuentes",
-    precio: "$ " + 8000
+    precio:8000
 },
 {
     id:18,
@@ -372,7 +372,7 @@ const productos= [
     `,
     imagen:"../assets/fuentes/gamermax650w80plus.jpg",
     categoria:"fuentes",
-    precio: "$ " + 14000
+    precio:14000
 },
 {
     id:19,
@@ -395,7 +395,7 @@ const productos= [
     `,
     imagen:"../assets/fuentes/AeroCool-Cylon-700w-rgb.jpg",
     categoria:"fuentes",
-    precio: "$ " + 90000
+    precio:90000
 },
 {
     id:20,
@@ -410,7 +410,7 @@ const productos= [
     `,
     imagen:"../assets/ram/ramElite8gb2400.jpg",
     categoria:"ram",
-    precio: "$ " + 6130
+    precio:6130
 },
 {
     id:21,
@@ -426,7 +426,7 @@ const productos= [
     `,
     imagen:"../assets/ram/patriot-Viper-Steel-3000.jpg",
     categoria:"ram",
-    precio: "$ " + 6450
+    precio:6450
 },
 {
     id:22,
@@ -442,7 +442,7 @@ const productos= [
     `,
     imagen:"../assets/ram/16gb-3000evo-potenza-red-.jpg",
     categoria:"ram",
-    precio: "$ " + 9179
+    precio:9179
 },
 
 

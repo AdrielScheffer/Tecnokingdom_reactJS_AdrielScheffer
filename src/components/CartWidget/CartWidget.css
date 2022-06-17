@@ -32,3 +32,8 @@
     margin-top: -12px;
 
 }
+
+.cart__number{
+    display: inline;
+    margin-right: 50px;
+}

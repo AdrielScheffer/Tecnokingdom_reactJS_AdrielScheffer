@@ -1,5 +1,4 @@
-import { useState } from "react"
-import { Link } from "react-router-dom"
+
 import './ItemCount.css'
 
 
@@ -39,9 +38,7 @@ return(
         <div className="button__container" id="button">
             <button className="button"onClick={handleAgregar}>Agregar al carrito</button>
         </div>
-        <div className="finish__container" id="finish">
-            <Link to={"/cart"} className="finish__container-link">Terminar compra</Link>
-        </div>
+        
         
                     
 
