@@ -46,7 +46,7 @@ export const ItemDetail = ({item})=>{
             <div className="detail__text">
                 <h1>{item.nombre}</h1>
                 <p className="desc">{item.descripcionLarga}</p>
-                <p className="price">{item.precio}</p>
+                <p className="price">$ {item.precio}</p>
                 
                 
                 {

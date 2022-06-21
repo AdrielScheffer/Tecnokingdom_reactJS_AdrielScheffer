@@ -30,11 +30,18 @@ function App() {
     return Cart.some((prod) => prod.id === id)
   }
 
+  const removeItem = (id) => {
+    setCart( Cart.filter((prod) => prod.id !== id) )
+}
+
+const totalPrice = () => {
+  return Cart.reduce( (acc, prod) => acc += (prod.precio * prod.cantidad), 0)
+}
 
 
 
   return (
-    <CartContext.Provider value={ {Cart,addItem, cantidadTotal, isInCart} }>
+    <CartContext.Provider value={ {Cart,addItem, cantidadTotal, isInCart, removeItem, totalPrice} }>
       <BrowserRouter>
         <div className="App">
           <Navbar>
