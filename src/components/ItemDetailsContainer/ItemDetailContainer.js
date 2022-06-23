@@ -1,11 +1,11 @@
 import './ItemDetailContainer.css'
 import spiner from '../ItemListContainer/images/spiner.gif'
 import { useContext, useEffect, useState } from 'react'
-import pedirDatos from '../../Data/PedirDatos.js'
 import { ItemDetail } from '../ItemDetail/ItemDetail'
 import { useParams } from 'react-router-dom'
 import { CartContext } from '../../Context/CartContext'
-
+import { doc, getDoc } from 'firebase/firestore'
+import { db } from '../../firebase/config'
 
 
 
@@ -23,20 +23,18 @@ export const ItemDetailContainer = ()=>{
 
             setloading(true)
 
-            pedirDatos()
-                
-                .then((resp)=>{
-                    
-                    setItem(resp.find((item)=> item.id === Number(itemId)))
-                })
-                .catch((error)=>{
-                    console.log("ERROR: ", error)
-                    
-                    
+            const docRef = doc(db, "Productos", itemId)
+
+            getDoc(docRef)
+                .then((doc)=>{
+                    setItem({id:doc.id, ...doc.data()})
+
                 })
                 .finally(()=>{
                     setloading(false)
+
                 })
+
 
         },[])
 

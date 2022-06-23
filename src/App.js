@@ -10,10 +10,12 @@ import { CartPage } from './components/Cart/Cart';
 import { CartContext } from './Context/CartContext';
 import { useState } from 'react';
 
+
+
 function App() {
 
   const [Cart, setCart] = useState([])
-  console.log(Cart)
+  
   
   const addItem = (item)=>{
 

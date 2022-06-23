@@ -57,7 +57,7 @@ export const ItemDetail = ({item})=>{
                 </>
             
                 : <>
-                    <div id="item_count"><ItemCount stock={10} counter={cantidad} setCounter={setCantidad} handleAgregar={handleAgregar} id="item_count"/></div>
+                    <div id="item_count"><ItemCount stock={item.stock} counter={cantidad} setCounter={setCantidad} handleAgregar={handleAgregar} id="item_count"/></div>
                     
                     
                 

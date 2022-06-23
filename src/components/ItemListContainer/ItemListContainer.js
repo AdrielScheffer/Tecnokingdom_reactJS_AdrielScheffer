@@ -1,9 +1,11 @@
 import './ItemListContainer.css'
 import spiner from './images/spiner.gif'
 import { useEffect, useState } from 'react'
-import pedirDatos from '../../Data/PedirDatos.js'
 import ItemList from '../ItemList/ItemList.js'
 import { useParams } from 'react-router-dom'
+import { collection, getDocs,query,where } from 'firebase/firestore'
+import { db } from '../../firebase/config'
+
 
 
 
@@ -17,26 +19,24 @@ export const ItemListContainer = ()=>{
 
             setloading(true)
 
-            pedirDatos()
-                
+            const productosRef = collection(db, "Productos")
+            const q = categoryId ?  query(productosRef, where("categoria","==",categoryId)): productosRef
+
+            getDocs(q)
                 .then((resp)=>{
-                    if (!categoryId){
-                        setitems(resp)}
-                    else{
-                        setitems(resp.filter((item) => item.categoria == categoryId))
-                    }
                     
-                    
-                    
-                })
-                .catch((error)=>{
-                    console.log("ERROR: ", error)
-                    
-                    
+                    const Newitems = (resp.docs.map((doc)=>{
+                        return{
+                            id: doc.id,
+                            ...doc.data()
+                        }
+                    }))
+                    setitems(Newitems)                    
                 })
                 .finally(()=>{
                     setloading(false)
                 })
+            
 
         },[categoryId])
 
