@@ -1,0 +1,42 @@
+.input{
+    margin: 15px;
+    padding: 20px 40px 20px 40px;
+    background-color: #000000;
+    background-image: linear-gradient(315deg, #161515 0%, #414141 74%);
+    border-radius: 8px;
+    border: #32b8ec 1px solid;
+    color: #fff;
+}
+
+
+.checkout__container{
+    background-color: #000000;
+    background-image: linear-gradient(to right, #000000 60%,#32b8ec );
+    padding-top: 30px;
+    padding-bottom: 30px;
+    min-height: 670px;
+    color: #fff;
+}
+
+.checkout__container-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.order__h2{
+    font-weight: bold;
+}
+
+.order__id{
+    font-size: 18px;
+    
+}
+
+.order__id p{
+    font-size: 24px;
+    color: #32b8ec;
+
+}

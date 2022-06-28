@@ -60,7 +60,7 @@ export const CartPage=()=>{
             }
 
             
-                <Link to={""} className="finish-buy">Total final: $ {totalPrice()}  Comprar</Link> 
+                <Link to={"/checkout"} className="finish-buy">Total final: $ {totalPrice()}  Comprar</Link> 
             
             
              

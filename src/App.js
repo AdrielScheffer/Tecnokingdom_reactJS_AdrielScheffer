@@ -9,6 +9,8 @@ import {Footer} from './components/Footer/Footer.js';
 import { CartPage } from './components/Cart/Cart';
 import { CartContext } from './Context/CartContext';
 import { useState } from 'react';
+import { Contact } from './components/Contact/Contact';
+import { Checkout } from './components/Checkout/Checkout';
 
 
 
@@ -36,6 +38,10 @@ function App() {
     setCart( Cart.filter((prod) => prod.id !== id) )
 }
 
+  const emptyCart = () => {
+    setCart( [] )
+}
+
 const totalPrice = () => {
   return Cart.reduce( (acc, prod) => acc += (prod.precio * prod.cantidad), 0)
 }
@@ -43,7 +49,7 @@ const totalPrice = () => {
 
 
   return (
-    <CartContext.Provider value={ {Cart,addItem, cantidadTotal, isInCart, removeItem, totalPrice} }>
+    <CartContext.Provider value={ {Cart,addItem, cantidadTotal, isInCart, removeItem, totalPrice, emptyCart} }>
       <BrowserRouter>
         <div className="App">
           <Navbar>
@@ -55,6 +61,8 @@ const totalPrice = () => {
               <Route path='/categorias/:categoryId' element={<ItemListContainer />}/>
               <Route path='/producto/:itemId' element={<ItemDetailContainer/>}/>
               <Route path='/cart' element={<CartPage/>}/>
+              <Route path='/checkout' element={<Checkout/>}/>
+              <Route path='/contacto' element={<Contact/>}/>
               
             </Routes>
           <Footer/>
