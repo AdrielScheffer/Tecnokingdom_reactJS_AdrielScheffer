@@ -1,13 +1,18 @@
 import './Navbar.css'
 import logo from './images/logo.png'
-import {IoLogInOutline} from 'react-icons/io5'
+import {FaPowerOff} from 'react-icons/fa'
 import { AiOutlineDown } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
+import {AiOutlineMenu} from 'react-icons/ai';
 
 
 
 
-export const Navbar = ({children}) =>{
+export const Navbar = ({children, user, logOut}) =>{
+
+    
+
+    
 
 
     return(
@@ -16,18 +21,19 @@ export const Navbar = ({children}) =>{
                 <ul className='header__nav-ul'>
                     <div className='header__nav-logo-title'>
                         <div className='header__nav-logo'>
-                            <img src={logo} className="logo"></img>
+                            <Link to={"/"} ><img src={logo} className="logo"></img></Link>
                             <h2 ><Link to={"/"} className='header__nav-h2'>Tecno Kingdom</Link></h2>
                         </div>
                         
                     </div>
+                    <span className='mobile__menu-icon' ><AiOutlineMenu/>
                     <ul className='header__nav-links'>
                         <li className='header__nav-li'>
                             {children}
                         </li>
 
                         <li className='header__nav-li'>
-                            <Link to={'/categorias/placa-video'} className='header__a'><b>Novedades</b></Link>
+                            <Link to={'/categorias/placa-video'} className='header__a'><b>Mis Compras</b></Link>
                         </li>
                         
                         <div className='header__nav-li'>
@@ -46,18 +52,36 @@ export const Navbar = ({children}) =>{
                             </div>
                         </div>
                             
+                        
                         <li className='header__nav-li'>
-                            <a  href='#' className='header__a'><b>Sobre nosotros</b></a>
-                        </li>
-                        <li className='header__nav-li'>
-                            <a  href='#' className='header__a login'><IoLogInOutline className='login__icon'/><b>iniciar sesion</b></a>
+                            {user
+                            ?
+                            <>
+                            <Link  to={"/"} className='header__a login'><b>{user.email} </b></Link>
+                                <button onClick={logOut} className="logout__button"><FaPowerOff/></button>
+                            </>
+                            :
+                            <Link  to={"/login"} className='header__a login'><b>iniciar sesion</b></Link>
+
+
+
+
+
+
+                            }
+                            
                         </li>
                         
+
+                        
                     </ul>
+                    </span>
+                    
+                    
                     
                 </ul>
 
-
+                
 
             </nav>
 

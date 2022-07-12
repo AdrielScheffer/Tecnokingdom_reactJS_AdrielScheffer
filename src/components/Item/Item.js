@@ -4,6 +4,7 @@ const Item = ({item})=>{
 
 
     return(
+        
         <div className="main__container-div-element">
 
             <h3 className='main__container-title'>{item.nombre}</h3>
@@ -13,6 +14,7 @@ const Item = ({item})=>{
             <Link className='main__container-div-button' to={`/producto/${item.id}`}>Ver mas</Link>
             
         </div>
+        
     )
 }
 export default Item

@@ -22,7 +22,7 @@ export const CardWidget = ()=>{
 
         <div className='cardwidget__main'>
         <span className='cart__number'>{cantidadTotal()}</span>
-            <Link to={"/cart"} className='cardwidget__a'><RiShoppingCartLine className='icon'/>Carrito</Link>
+            <Link to={"/cart"} className='cardwidget__a'><RiShoppingCartLine className='icon'/></Link>
         </div>
        
     )

@@ -11,8 +11,6 @@ import { db } from '../../firebase/config'
 
 export const ItemDetailContainer = ()=>{
 
-    const contexto = useContext(CartContext)
-
     const [item,setItem]= useState(null)
     const [loading, setloading] = useState(true)
     

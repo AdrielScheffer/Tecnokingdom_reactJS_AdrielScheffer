@@ -8,16 +8,32 @@ import { ItemDetailContainer } from './components/ItemDetailsContainer/ItemDetai
 import {Footer} from './components/Footer/Footer.js';
 import { CartPage } from './components/Cart/Cart';
 import { CartContext } from './Context/CartContext';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Contact } from './components/Contact/Contact';
 import { Checkout } from './components/Checkout/Checkout';
+import { Login } from './components/Login/Login';
+import {auth} from "./firebase/config";
+
 
 
 
 function App() {
 
+  const [user, setUser] = useState(null)
+
+  useEffect(()=>{
+    auth.onAuthStateChanged((usuarioFirebase)=>{
+      console.log("ya tienes sesion iniciada con" + usuarioFirebase)
+      setUser(usuarioFirebase)
+    })
+  },[])
+
+  const logOut=()=>{
+    auth.signOut();
+  }
+
+
   const [Cart, setCart] = useState([])
-  
   
   const addItem = (item)=>{
 
@@ -52,11 +68,15 @@ const totalPrice = () => {
     <CartContext.Provider value={ {Cart,addItem, cantidadTotal, isInCart, removeItem, totalPrice, emptyCart} }>
       <BrowserRouter>
         <div className="App">
-          <Navbar>
-            <CardWidget/>
-          </Navbar>
+          {user
+          ? 
+          <Navbar user={user} logOut={logOut}><CardWidget/></Navbar> 
+          :
+          <Navbar user={null} logOut={null}><CardWidget/></Navbar>}
+          
           
             <Routes>
+              <Route path='/login' element={<Login setUser={setUser}/>}/>
               <Route path='/' element={<ItemListContainer />}/>
               <Route path='/categorias/:categoryId' element={<ItemListContainer />}/>
               <Route path='/producto/:itemId' element={<ItemDetailContainer/>}/>
@@ -65,7 +85,7 @@ const totalPrice = () => {
               <Route path='/contacto' element={<Contact/>}/>
               
             </Routes>
-          <Footer/>
+        <Footer/>
         </div>
       </BrowserRouter>
 

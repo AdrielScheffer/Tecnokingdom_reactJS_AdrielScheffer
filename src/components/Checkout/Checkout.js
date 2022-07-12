@@ -5,12 +5,36 @@ import { useContext } from "react"
 import { Navigate } from "react-router-dom"
 import { db } from "../../firebase/config"
 import { collection, addDoc } from "firebase/firestore"
+import { Formik} from 'formik'
+import * as Yup from 'yup'
+
+
+
+
 
 
 
 export const Checkout = ()=>{
 
-    const Swal = require('sweetalert2')
+    const schema=Yup.object().shape({
+        nombre:Yup.string()
+                .required("el campo es requerido")
+                .min(4, "nombre demasiado corto")
+                .max(20, "El nombre es demasiado corto"),
+        email:Yup.string()
+                .email("Formato de email incorrecto")
+                .required("Campo requerido"),
+        direccion:Yup.string()
+                    .required("Campo requerido")
+                    .min(5, "Direccion demasiado corta")
+                    .max(30,"La direccion es demasiado larga")
+        
+        
+                
+                    
+        
+    })
+    
 
     let time = new Date()
 
@@ -18,58 +42,20 @@ export const Checkout = ()=>{
 
     const [orderId, setOrderId] = useState(null)
 
+    
+    
+
+
     const [values, setValues] = useState({
         nombre:"",
         email:"",
-        telefono:"",
+        direccion:"",
 
 
     })
 
-    const handleInputChange=(e)=>{
-
-        setValues({
-            ...values,
-            [e.target.name]:e.target.value
-
-        })
-
-
-    }
-    const handleSubmit=(e)=>{
-
-
-        e.preventDefault()
-
-        if (values.nombre.length < 5){
-            Swal.fire({
-                title: 'Error!',
-                text: 'El nombre es demasiado corto',
-                icon: 'error',
-                confirmButtonText: 'Aceptar'
-              })
-            
-            return 
-        }
-        if (values.email.length < 5){
-            Swal.fire({
-                title: 'Error!',
-                text: 'El email es invalido',
-                icon: 'error',
-                confirmButtonText: 'Aceptar'
-              })
-            return 
-        }
-        if (values.telefono.length < 5){
-            Swal.fire({
-                title: 'Error!',
-                text: 'El telefono es incorrecto',
-                icon: 'error',
-                confirmButtonText: 'Aceptar'
-              })
-            return 
-        }
-
+    
+    const crearOrden=(values)=>{
 
         const orden={
             buyer: values,
@@ -108,36 +94,59 @@ export const Checkout = ()=>{
         <div className="checkout__container">
             <h2>Checkout</h2>
             <p>ingrese sus datos:</p>
-            <form onSubmit={handleSubmit} className="checkout__container-form">
-                <input
-                    value={values.nombre}
-                    name="nombre"
-                    onChange={handleInputChange}
-                    
-                    type={"text"} 
-                    placeholder="Nombre" 
-                    className="input"
+            <Formik
+            initialValues={{
+                nombre:"",
+                email:"",
+                telefono:""
 
-                />
-                <input
-                    value={values.email}
-                    name="email"
-                    onChange={handleInputChange}
-                    type={"email"} 
-                    placeholder="email@ejemplo.com" 
-                    className="input"
-                />
-                <input
-                    value={values.telefono}
-                    name="telefono"
-                    onChange={handleInputChange}
-                    type={"number"} 
-                    placeholder="telefono" 
-                    className="input"
-                />
+            }}
+            onSubmit={(values)=>{
+                
+                
+                crearOrden(values)
+            }}
+            validationSchema={schema}
+            >
+                {(formik)=>(
+                    <form onSubmit={formik.handleSubmit} className="checkout__container-form">
+                        <input
+                            value={formik.values.nombre}
+                            name="nombre"
+                            onChange={formik.handleChange}
+                            
+                            type={"text"} 
+                            placeholder="Nombre" 
+                            className="input"
 
-                <button type="submit" className="finish-buy">Enviar</button>
-            </form>
+                        />
+                        {formik.errors.nombre && <p>{formik.errors.nombre}</p>}
+                        <input
+                            value={formik.values.email}
+                            name="email"
+                            onChange={formik.handleChange}
+                            type={"email"} 
+                            placeholder="email@ejemplo.com" 
+                            className="input"
+                        />
+                        {formik.errors.email && <p>{formik.errors.email}</p>}
+                        <input
+                            value={formik.values.direccion}
+                            name="direccion"
+                            onChange={formik.handleChange}
+                            type={"text"} 
+                            placeholder="direccion" 
+                            className="input"
+                        />
+                        {formik.errors.direccion && <p>{formik.errors.direccion}</p>}
+
+                        <button type="submit" className="finish-buy">Enviar</button>
+                    </form>
+
+
+                )}
+                
+            </Formik>
         </div>
     )
 }

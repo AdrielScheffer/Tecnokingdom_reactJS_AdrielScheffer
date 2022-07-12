@@ -35,7 +35,7 @@ export const ItemDetail = ({item})=>{
         <>
 
         <div className="back__button-container">
-            <button className="back__button" onClick={handleVolver}><IoIosArrowRoundBack className="icon"/>VOLVER</button>
+            <button className="back__button" onClick={handleVolver}><IoIosArrowRoundBack className="icon-back"/></button>
         </div> 
 
         
@@ -46,33 +46,46 @@ export const ItemDetail = ({item})=>{
             <div className="detail__text">
                 <h1>{item.nombre}</h1>
                 <p className="desc">{item.descripcionLarga}</p>
-                <p className="price">$ {item.precio}</p>
+                {/* <p className="price">$ {item.precio}</p> */}
                 
                 
                 {
                 isInCart(item.id)
-                ? <>
-                
-                
+                ? 
+                <>
+                    <div className="finish__container" id="finish">
+                    <Link to={"/cart"} className="finish__container-link">Terminar compra</Link>
+                    </div>
                 </>
             
                 : <>
-                    <div id="item_count"><ItemCount stock={item.stock} counter={cantidad} setCounter={setCantidad} handleAgregar={handleAgregar} id="item_count"/></div>
-                    
-                    
+                
+                <p className="price">$ {item.precio}</p>
+                <div id="item_count"><ItemCount stock={item.stock} counter={cantidad} setCounter={setCantidad} handleAgregar={handleAgregar} id="item_count"/></div>
+
                 
                 </>
-
                     
                 }
+                
             </div>
+            
             
             
               
         </div>
-        <div className="finish__container" id="finish">
-                <Link to={"/cart"} className="finish__container-link">Terminar compra</Link>
+        {
+                isInCart(item.id)
+                ?
+                <></>
+                :
+                <>
+                <div className="button__container" id="button">
+                <button className="button"onClick={handleAgregar}>Agregar al carrito</button>
                 </div>
+                </>
+            }
+        
         
         
 

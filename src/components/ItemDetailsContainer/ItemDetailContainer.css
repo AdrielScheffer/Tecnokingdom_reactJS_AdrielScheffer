@@ -1,12 +1,11 @@
 
 .main__detail-container{
-    background-color: #000000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     background-image: linear-gradient(to right, #000000 60%,#32b8ec );
-    height:100%;
-    width: 100%;
-    padding-top: 8px;
-    padding-bottom: 300px;
-    height: 650px;
+    padding: 0px 15px 0px 15px;
+    
 }
 
 .spiner {
@@ -21,14 +20,14 @@
 .detail__container{
     background-color: #000000;
     background-image: linear-gradient(to left, #000000 , #414141 );
-    margin: auto;
-    width: 1100px;
-    border-radius: 24px 24px 0px 0px;
+    margin-bottom:10px;
+    border-radius: 24px 24px 24px 24px;
     padding: 30px;
     color: #fff;
     display: flex;
     justify-content: center;
     align-items: center;
+    max-width: 1000px;
    
     
 }
@@ -51,8 +50,7 @@
 
 .desc{
     white-space: pre-wrap;
-    height: 300px;
-    width: 500px;
+    
     text-align: center;
     
     font-size: 18px;
@@ -63,25 +61,8 @@
     font-size: 32px;
 }
 
-.button__container{
-    position: absolute;
-    background-image: linear-gradient(to left, #000000 , #414141 );;
-    border-radius: 0px 0px 24px 24px;
-    margin-top: 280px;
-    margin-right: 500px;
-    width: 1100px;
-    padding: 30px;
-    
-
-    
-    
-    
-    
-    
-    
-}
-
 .button{
+    margin-bottom: 10px;
     background-image: linear-gradient(315deg, #000000 0%, #414141 74%);
     padding: 20px;
     text-decoration: none;
@@ -101,17 +82,16 @@
 }
 
 .back__button-container{
-    
     margin: 30px;
-    
-    
 }
 
 .back__button{
+    right: 140px;
+    position: relative;
     background-image: linear-gradient(to left, #5f91db,#356dc2,#1a51a5);
-    padding: 20px 40px 20px 60px;
-    border-radius: 24px;
-    text-decoration: none;
+    
+    border-radius: 12px;
+    
     cursor: pointer;
     color: #fff;
     font-weight: bold;
@@ -119,8 +99,9 @@
     border: none;
 }
 
-.icon{
-    font-size: 40px;
+.icon-back{
+    font-size: 24px;
+    
 }
 
 .back__button:hover{
@@ -153,4 +134,36 @@
 
 .finish__container:hover{
     box-shadow: 0px 0px 40px #ca0e0e;
+}
+
+.button__container{
+    padding-bottom: 10px;
+}
+
+@media screen and  (max-width: 1220px){
+    .image{
+        align-self: stretch;
+        max-width: 300px; 
+        max-height: 300px;
+        display: flex;
+        
+        }
+
+
+}
+
+@media screen and  (max-width: 760px){
+    .image{
+        max-width: 250px; 
+        max-height: 250px;
+
+    }
+
+    .detail__container{
+        flex-direction: column;
+    }
+
+    .image{
+        align-self: center;
+    }
 }

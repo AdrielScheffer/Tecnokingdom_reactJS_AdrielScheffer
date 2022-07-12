@@ -1,4 +1,10 @@
 
+.background__footer{
+    background-color: #000000;
+    background-image: linear-gradient(to right, #000000 60%,#32b8ec );
+    
+}
+
 .Footer__main-container{
     background: linear-gradient(135deg, rgba(48, 43, 43, 0.6), rgba(255, 255, 255, 0));
     padding: 10px;
@@ -41,4 +47,18 @@
     color: #32b8ec;
     
     text-shadow: 0 0 15px #32b8ec;
+}
+
+
+@media screen and  (max-width: 660px){
+    .Footer_main-container-p{
+        display: none;
+    }
+    .Footer__logo{
+        height: 60px;
+        width: 40px;
+    }
+
+
+
 }
