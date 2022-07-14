@@ -21,7 +21,7 @@ export const Checkout = ()=>{
     const {user} = useContext(AuthContext)
 
     const schema=Yup.object().shape({
-        nombre:Yup.string()
+        nombreCompleto:Yup.string()
                 .required("el campo es requerido")
                 .min(4, "nombre demasiado corto")
                 .max(20, "El nombre es demasiado corto"),
@@ -30,6 +30,7 @@ export const Checkout = ()=>{
                 .required("Campo requerido"),
         telefono:Yup.number()
                     .required("Campo requerido")
+                    .positive("el numero debe ser positivo")
                     .min(8, "Telefono demasiado corto")
                     .max(15,"Telefono demasiado largo")
         
@@ -51,7 +52,7 @@ export const Checkout = ()=>{
 
 
     const [values, setValues] = useState({
-        nombre:"",
+        nombreCompleto:"",
         email:"",
         telefono:"",
 
@@ -116,16 +117,16 @@ export const Checkout = ()=>{
                 {(formik)=>(
                     <form onSubmit={formik.handleSubmit} className="checkout__container-form">
                         <input
-                            value={formik.values.nombre}
-                            name="nombre"
+                            value={formik.values.nombreCompleto}
+                            name="nombreCompleto"
                             onChange={formik.handleChange}
                             
                             type={"text"} 
-                            placeholder="Nombre" 
+                            placeholder="Nombre completo" 
                             className="input"
 
                         />
-                        {formik.errors.nombre && <p className="errors">{formik.errors.nombre}</p>}
+                        {formik.errors.nombreCompleto && <p className="errors">{formik.errors.nombreCompleto}</p>}
                         <input
                             value={formik.values.email}
                             name="email"
@@ -144,7 +145,7 @@ export const Checkout = ()=>{
                             placeholder="telefono" 
                             className="input"
                         />
-                        {formik.errors.direccion && <p className="errors">{formik.errors.telefono}</p>}
+                        {formik.errors.telefono && <p className="errors">{formik.errors.telefono}</p>}
 
                         <button type="submit" className="finish-buy">Enviar</button>
                     </form>
