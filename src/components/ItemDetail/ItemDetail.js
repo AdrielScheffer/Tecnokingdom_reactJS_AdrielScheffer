@@ -1,11 +1,15 @@
 import { IoIosArrowRoundBack } from "react-icons/io";
 import { ItemCount } from "../ItemCount/ItemCount";
 import { useNavigate } from "react-router-dom"
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect} from "react";
 import { CartContext } from "../../Context/CartContext";
 import { Link } from 'react-router-dom'
+import { AuthContext } from '../../Context/AuthContext';
+
 
 export const ItemDetail = ({item})=>{
+
+    const {user} = useContext(AuthContext)
 
     const {addItem, isInCart} = useContext(CartContext)
 
@@ -30,6 +34,41 @@ export const ItemDetail = ({item})=>{
 
     }
 
+    const handleUserLogic=(user,item)=>{
+        if(user && isInCart(item.id)){
+            return(
+                <>
+                    <div className="finish__container" id="finish">
+                        <Link to={"/cart"} className="finish__container-link">Terminar compra</Link>
+                    </div>
+                    <div className="continue__buy">
+                    <Link to={"/"} className="continue__buy-link">Seguir comprando</Link>
+
+                    </div>
+                </>
+            )
+        }else if(user && !isInCart(item.id)){
+            return(
+                <>
+                <p className="price">$ {item.precio}</p>
+                <div id="item_count"><ItemCount stock={item.stock} counter={cantidad} setCounter={setCantidad} handleAgregar={handleAgregar} id="item_count"/></div>
+                </>
+            )
+        }else{
+            return(
+                <>
+                <p className="price">$ {item.precio}</p>
+                <div><Link to={"/login"} className="login__link">Debes registrate para poder comprar</Link></div>
+                </>
+            )
+        }
+
+    }
+
+    
+    
+
+
     
     return(
         <>
@@ -42,32 +81,13 @@ export const ItemDetail = ({item})=>{
 
         <div className="detail__container">
             
+            
             <img src={item.imagen} className='image' alt= 'item' ></img>
             <div className="detail__text">
                 <h1>{item.nombre}</h1>
                 <p className="desc">{item.descripcionLarga}</p>
-                {/* <p className="price">$ {item.precio}</p> */}
                 
-                
-                {
-                isInCart(item.id)
-                ? 
-                <>
-                    <div className="finish__container" id="finish">
-                    <Link to={"/cart"} className="finish__container-link">Terminar compra</Link>
-                    </div>
-                </>
-            
-                : <>
-                
-                <p className="price">$ {item.precio}</p>
-                <div id="item_count"><ItemCount stock={item.stock} counter={cantidad} setCounter={setCantidad} handleAgregar={handleAgregar} id="item_count"/></div>
-
-                
-                </>
-                    
-                }
-                
+                {handleUserLogic(user, item)}
             </div>
             
             
@@ -75,14 +95,17 @@ export const ItemDetail = ({item})=>{
               
         </div>
         {
-                isInCart(item.id)
+                !isInCart(item.id) && user
                 ?
-                <></>
-                :
                 <>
                 <div className="button__container" id="button">
                 <button className="button"onClick={handleAgregar}>Agregar al carrito</button>
                 </div>
+                
+                </>
+                :
+                <>
+                
                 </>
             }
         

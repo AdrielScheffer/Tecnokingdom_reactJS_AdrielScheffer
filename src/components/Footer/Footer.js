@@ -13,7 +13,8 @@ export const Footer = ()=>{
             </div>
             
             <Link to={"/login"} className="Footer__main-container-link" >Iniciar sesion</Link>
-            <Link to={"/"} className="Footer__main-container-link" >sobre nosotros</Link>
+            
+            <Link to={"/compras"} className="Footer__main-container-link" >mis compras</Link>
         </div>
         </div>
     )

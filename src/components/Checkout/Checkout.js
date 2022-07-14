@@ -7,6 +7,8 @@ import { db } from "../../firebase/config"
 import { collection, addDoc } from "firebase/firestore"
 import { Formik} from 'formik'
 import * as Yup from 'yup'
+import { AuthContext } from '../../Context/AuthContext';
+
 
 
 
@@ -16,6 +18,8 @@ import * as Yup from 'yup'
 
 export const Checkout = ()=>{
 
+    const {user} = useContext(AuthContext)
+
     const schema=Yup.object().shape({
         nombre:Yup.string()
                 .required("el campo es requerido")
@@ -24,10 +28,10 @@ export const Checkout = ()=>{
         email:Yup.string()
                 .email("Formato de email incorrecto")
                 .required("Campo requerido"),
-        direccion:Yup.string()
+        telefono:Yup.number()
                     .required("Campo requerido")
-                    .min(5, "Direccion demasiado corta")
-                    .max(30,"La direccion es demasiado larga")
+                    .min(8, "Telefono demasiado corto")
+                    .max(15,"Telefono demasiado largo")
         
         
                 
@@ -49,7 +53,7 @@ export const Checkout = ()=>{
     const [values, setValues] = useState({
         nombre:"",
         email:"",
-        direccion:"",
+        telefono:"",
 
 
     })
@@ -58,6 +62,7 @@ export const Checkout = ()=>{
     const crearOrden=(values)=>{
 
         const orden={
+            email:values.email,
             buyer: values,
             items: Cart.map(({id, cantidad,nombre,precio})=>({id, cantidad,nombre,precio})),
             date: time,
@@ -97,7 +102,7 @@ export const Checkout = ()=>{
             <Formik
             initialValues={{
                 nombre:"",
-                email:"",
+                email:user.email,
                 telefono:""
 
             }}
@@ -120,25 +125,26 @@ export const Checkout = ()=>{
                             className="input"
 
                         />
-                        {formik.errors.nombre && <p>{formik.errors.nombre}</p>}
+                        {formik.errors.nombre && <p className="errors">{formik.errors.nombre}</p>}
                         <input
                             value={formik.values.email}
                             name="email"
                             onChange={formik.handleChange}
                             type={"email"} 
-                            placeholder="email@ejemplo.com" 
+                            placeholder={user.email} 
                             className="input"
+                            readOnly={true}
                         />
-                        {formik.errors.email && <p>{formik.errors.email}</p>}
+                        {formik.errors.email && <p className="errors">{formik.errors.email}</p>}
                         <input
-                            value={formik.values.direccion}
-                            name="direccion"
+                            value={formik.values.telefono}
+                            name="telefono"
                             onChange={formik.handleChange}
-                            type={"text"} 
-                            placeholder="direccion" 
+                            type={"number"} 
+                            placeholder="telefono" 
                             className="input"
                         />
-                        {formik.errors.direccion && <p>{formik.errors.direccion}</p>}
+                        {formik.errors.direccion && <p className="errors">{formik.errors.telefono}</p>}
 
                         <button type="submit" className="finish-buy">Enviar</button>
                     </form>

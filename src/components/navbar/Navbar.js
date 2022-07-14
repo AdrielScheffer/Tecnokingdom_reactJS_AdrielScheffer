@@ -4,14 +4,18 @@ import {FaPowerOff} from 'react-icons/fa'
 import { AiOutlineDown } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
 import {AiOutlineMenu} from 'react-icons/ai';
+import { AuthContext } from '../../Context/AuthContext';
+import { useContext } from "react"
 
 
 
 
-export const Navbar = ({children, user, logOut}) =>{
+export const Navbar = ({children}) =>{
 
     
+    const {user, logOut} = useContext(AuthContext)
 
+    
     
 
 
@@ -33,7 +37,7 @@ export const Navbar = ({children, user, logOut}) =>{
                         </li>
 
                         <li className='header__nav-li'>
-                            <Link to={'/categorias/placa-video'} className='header__a'><b>Mis Compras</b></Link>
+                            <Link to={'/compras'} className='header__a'><b>Mis Compras</b></Link>
                         </li>
                         
                         <div className='header__nav-li'>
@@ -58,7 +62,7 @@ export const Navbar = ({children, user, logOut}) =>{
                             ?
                             <>
                             <Link  to={"/"} className='header__a login'><b>{user.email} </b></Link>
-                                <button onClick={logOut} className="logout__button"><FaPowerOff/></button>
+                                <Link to={"/"} onClick={logOut} className="logout__button"><FaPowerOff/></Link>
                             </>
                             :
                             <Link  to={"/login"} className='header__a login'><b>iniciar sesion</b></Link>

@@ -3,20 +3,18 @@ import { Link } from 'react-router-dom'
 import './CartWidget.css'
 import { CartContext } from "../../Context/CartContext"
 import { useContext } from "react"
-
+import { AuthContext } from '../../Context/AuthContext';
 
 
 export const CardWidget = ()=>{
 
+    const {user} = useContext(AuthContext)
+
     const {cantidadTotal, Cart} = useContext(CartContext)
 
-    if (Cart.length === 0) return (
-
-    <>
     
-    </>
     
-    )
+    
 
     return(
 

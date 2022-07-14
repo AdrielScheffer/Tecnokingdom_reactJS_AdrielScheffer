@@ -7,76 +7,33 @@ import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import { ItemDetailContainer } from './components/ItemDetailsContainer/ItemDetailContainer';
 import {Footer} from './components/Footer/Footer.js';
 import { CartPage } from './components/Cart/Cart';
-import { CartContext } from './Context/CartContext';
-import { useEffect, useState } from 'react';
+import { CartProvider } from './Context/CartContext';
 import { Contact } from './components/Contact/Contact';
 import { Checkout } from './components/Checkout/Checkout';
 import { Login } from './components/Login/Login';
-import {auth} from "./firebase/config";
+import { OrdersContainer } from './components/OrdersContainer/OrdersContainer';
+import {AuthProvider} from './Context/AuthContext';
 
 
 
 
 function App() {
 
-  const [user, setUser] = useState(null)
-
-  useEffect(()=>{
-    auth.onAuthStateChanged((usuarioFirebase)=>{
-      console.log("ya tienes sesion iniciada con" + usuarioFirebase)
-      setUser(usuarioFirebase)
-    })
-  },[])
-
-  const logOut=()=>{
-    auth.signOut();
-  }
-
-
-  const [Cart, setCart] = useState([])
   
-  const addItem = (item)=>{
-
-    setCart([...Cart, item])
-
-  }
-
-  const cantidadTotal= ()=>{
-
-    return Cart.reduce( (acc, prod) => (acc += prod.cantidad), 0 )
-  }
-
-  const isInCart = (id) => {
-    return Cart.some((prod) => prod.id === id)
-  }
-
-  const removeItem = (id) => {
-    setCart( Cart.filter((prod) => prod.id !== id) )
-}
-
-  const emptyCart = () => {
-    setCart( [] )
-}
-
-const totalPrice = () => {
-  return Cart.reduce( (acc, prod) => acc += (prod.precio * prod.cantidad), 0)
-}
-
 
 
   return (
-    <CartContext.Provider value={ {Cart,addItem, cantidadTotal, isInCart, removeItem, totalPrice, emptyCart} }>
+    
+    <CartProvider>
+      <AuthProvider>
       <BrowserRouter>
         <div className="App">
-          {user
-          ? 
-          <Navbar user={user} logOut={logOut}><CardWidget/></Navbar> 
-          :
-          <Navbar user={null} logOut={null}><CardWidget/></Navbar>}
           
+          <Navbar><CardWidget/></Navbar>
           
             <Routes>
-              <Route path='/login' element={<Login setUser={setUser}/>}/>
+              <Route path='/compras' element={<OrdersContainer/>}/>
+              <Route path='/login' element={<Login />}/>
               <Route path='/' element={<ItemListContainer />}/>
               <Route path='/categorias/:categoryId' element={<ItemListContainer />}/>
               <Route path='/producto/:itemId' element={<ItemDetailContainer/>}/>
@@ -88,8 +45,9 @@ const totalPrice = () => {
         <Footer/>
         </div>
       </BrowserRouter>
-
-    </CartContext.Provider>
+      </AuthProvider>
+      </CartProvider>
+      
     
   );
 }

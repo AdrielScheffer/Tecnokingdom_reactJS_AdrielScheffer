@@ -14,7 +14,7 @@
     background-image: linear-gradient(to right, #000000 60%,#32b8ec );
     padding-top: 30px;
     padding-bottom: 30px;
-    min-height: 670px;
+    min-height: 700px;
     color: #fff;
 }
 
@@ -39,4 +39,8 @@
     font-size: 24px;
     color: #32b8ec;
 
+}
+
+.errors{
+    color: #8d2828
 }

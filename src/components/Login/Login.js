@@ -3,8 +3,14 @@ import { auth } from "../../firebase/config"
 import {createUserWithEmailAndPassword, signInWithEmailAndPassword} from "firebase/auth";
 import "./Login.css"
 import { useNavigate } from "react-router-dom"
+import { AuthContext } from '../../Context/AuthContext';
+import { useContext } from "react"
 
-export const Login=(props)=>{
+
+
+export const Login=()=>{
+
+    const {setUser} = useContext(AuthContext)
 
     const navigate = useNavigate()
 
@@ -18,14 +24,14 @@ export const Login=(props)=>{
 
         createUserWithEmailAndPassword(auth,email, password)
             .then((usuarioFirebase) =>{
-                props.setUser(usuarioFirebase.user)
+                setUser(usuarioFirebase.user)
             })
     }
 
     const logIn=(email, password)=>{
         signInWithEmailAndPassword(auth,email,password)
             .then((usuarioFirebase)=>{
-                props.setUser(usuarioFirebase.user)
+                setUser(usuarioFirebase.user)
             })
     }
 

@@ -12,12 +12,12 @@ import { db } from '../../firebase/config'
 export const ItemListContainer = ()=>{
 
     const [items,setitems]= useState([])
-    const [loading, setloading] = useState(true)
+    
     const {categoryId} = useParams()
 
         useEffect(()=>{
 
-            setloading(true)
+            
 
             const productosRef = collection(db, "Productos")
             const q = categoryId ?  query(productosRef, where("categoria","==",categoryId)): productosRef
@@ -33,9 +33,7 @@ export const ItemListContainer = ()=>{
                     }))
                     setitems(Newitems)                    
                 })
-                .finally(()=>{
-                    setloading(false)
-                })
+                
             
 
         },[categoryId])
@@ -43,14 +41,12 @@ export const ItemListContainer = ()=>{
     
     return(
         <div className='main__container'>
-            {
-                loading
-                ? <img src={spiner} alt="spiner" ></img>
             
-                : <ItemList items={items}/>
+            
+            <ItemList items={items}/>
                 
                     
-            }
+            
         </div>
         
     )

@@ -6,26 +6,18 @@ import { useContext } from "react"
 import { MdOutlineDeleteOutline } from "react-icons/md"
 import { EmptyCart } from "./EmptyCart"
 import { Link } from "react-router-dom"
+import { AuthContext } from '../../Context/AuthContext';
 
 export const CartPage=()=>{
 
     const {Cart, removeItem, totalPrice} = useContext(CartContext)
 
-    const [loading, setLoading] = useState(true)
-
-    const loadChange = ()=>{
-        setLoading(false)
-    }
-
-    
-    
-    
     
 
-    setTimeout(()=>{ loadChange()}, 1000)
+    const {user} = useContext(AuthContext)
 
 
-    if (Cart.length === 0) return(
+    if (Cart.length === 0 || !user) return(
     
     <EmptyCart></EmptyCart>
     
@@ -34,10 +26,9 @@ export const CartPage=()=>{
 
     return(
 
-        loading
-        ?<div className="spiner__load"><img src={spiner} alt="spiner" className='spiner'></img></div>
         
-        :<div className="cart__container">
+        
+        <div className="cart__container">
             
             
             {
