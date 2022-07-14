@@ -18,6 +18,10 @@ import { AuthContext } from '../../Context/AuthContext';
 
 export const Checkout = ()=>{
 
+    
+
+        
+
     const {user} = useContext(AuthContext)
 
     const schema=Yup.object().shape({
@@ -31,8 +35,9 @@ export const Checkout = ()=>{
         telefono:Yup.number()
                     .required("Campo requerido")
                     .positive("el numero debe ser positivo")
-                    .min(8, "Telefono demasiado corto")
-                    .max(15,"Telefono demasiado largo")
+                    .min(10000000, "El numero es demasiado corto")
+                    .max(100000000000, "El numero es demasiado largo")
+                    
         
         
                 
@@ -98,7 +103,7 @@ export const Checkout = ()=>{
 
     return(
         <div className="checkout__container">
-            <h2>Checkout</h2>
+            <h2>Finalizar compra</h2>
             <p>ingrese sus datos:</p>
             <Formik
             initialValues={{
