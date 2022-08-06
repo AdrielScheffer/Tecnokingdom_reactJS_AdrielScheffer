@@ -1,5 +1,4 @@
-import { useState } from "react"
-import spiner from '../ItemListContainer/images/spiner.gif'
+
 import "./Cart.css"
 import { CartContext } from "../../Context/CartContext"
 import { useContext } from "react"

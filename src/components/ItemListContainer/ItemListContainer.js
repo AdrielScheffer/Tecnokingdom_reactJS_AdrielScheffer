@@ -1,5 +1,4 @@
 import './ItemListContainer.css'
-import spiner from './images/spiner.gif'
 import { useEffect, useState } from 'react'
 import ItemList from '../ItemList/ItemList.js'
 import { useParams } from 'react-router-dom'

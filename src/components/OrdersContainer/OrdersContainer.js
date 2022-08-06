@@ -12,7 +12,7 @@ export const OrdersContainer=()=>{
     const {user} = useContext(AuthContext)
 
     
-
+        
         useEffect(()=>{
 
             
@@ -39,13 +39,20 @@ export const OrdersContainer=()=>{
             
 
         },[])
+    
                 
             
 
         
+    
+    if(user){
 
+
+    
 
     return(
+
+        
         <div className='main__container-orders'>
             <h1 className='h1-orders'>Compras</h1>
 
@@ -61,4 +68,22 @@ export const OrdersContainer=()=>{
 
         </div>
     )
+    }else{
+
+        return(
+            <div className='main__container-orders'>
+            <h1 className='h1-orders'>Debes loguearte para ver sus compras</h1>
+
+            
+    
+            
+
+
+
+
+        </div>
+
+
+        )
+    }
 }

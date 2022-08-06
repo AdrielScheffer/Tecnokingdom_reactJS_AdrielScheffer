@@ -25,7 +25,7 @@ export const Navbar = ({children}) =>{
                 <ul className='header__nav-ul'>
                     <div className='header__nav-logo-title'>
                         <div className='header__nav-logo'>
-                            <Link to={"/"} ><img src={logo} className="logo"></img></Link>
+                            <Link to={"/"} ><img src={logo} className="logo" alt='company-logo'></img></Link>
                             <h2 ><Link to={"/"} className='header__nav-h2'>Tecno Kingdom</Link></h2>
                         </div>
                         
@@ -35,10 +35,16 @@ export const Navbar = ({children}) =>{
                         <li className='header__nav-li'>
                             {children}
                         </li>
+                        {user
 
+                        ?
                         <li className='header__nav-li'>
                             <Link to={'/compras'} className='header__a'><b>Mis Compras</b></Link>
                         </li>
+                        :
+                        <></>
+                        }
+                        
                         
                         <div className='header__nav-li'>
                             <div className='header__a product'><AiOutlineDown className='product__icon'/><b>Productos</b>

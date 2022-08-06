@@ -1,9 +1,9 @@
 import './ItemDetailContainer.css'
 import spiner from '../ItemListContainer/images/spiner.gif'
-import { useContext, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { ItemDetail } from '../ItemDetail/ItemDetail'
 import { useParams } from 'react-router-dom'
-import { CartContext } from '../../Context/CartContext'
+
 import { doc, getDoc } from 'firebase/firestore'
 import { db } from '../../firebase/config'
 

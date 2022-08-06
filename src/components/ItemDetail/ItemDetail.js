@@ -1,7 +1,7 @@
 import { IoIosArrowRoundBack } from "react-icons/io";
 import { ItemCount } from "../ItemCount/ItemCount";
 import { useNavigate } from "react-router-dom"
-import { useContext, useState, useEffect} from "react";
+import { useContext, useState} from "react";
 import { CartContext } from "../../Context/CartContext";
 import { Link } from 'react-router-dom'
 import { AuthContext } from '../../Context/AuthContext';

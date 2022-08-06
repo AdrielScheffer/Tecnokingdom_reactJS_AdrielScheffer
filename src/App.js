@@ -1,6 +1,6 @@
 
 import './App.css';
-import {Navbar} from './components/Navbar/Navbar.js';
+import {Navbar} from './components/navbar/Navbar.js';
 import {CardWidget} from './components/CartWidget/CardWidget.js';
 import { ItemListContainer } from './components/ItemListContainer/ItemListContainer.js';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
